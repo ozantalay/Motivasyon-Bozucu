@@ -7,7 +7,7 @@ import quoteData from './data/quoteData'
 
 export default function App() {
   const [currentData, setCurrentData] = useState(null)
-
+  
   useEffect(() => {
     hydrateData()
   }, [])
@@ -103,10 +103,10 @@ export default function App() {
 */
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper' style={currentData?.image?.wrapperStyles}>
       {currentData && (
-        <div className='quote-container'>
-          <p className='quote'>
+        <div className='quote-container'  style={currentData?.image?.containerStyles}>
+          <p className='quote' style={{fontSize:getSmallestFontSize()}}>
             {currentData.text.fakeQuote}
             <span className='source'>-{currentData.text.fakeSource}</span>
           </p>
